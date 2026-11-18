@@ -1,0 +1,42 @@
+export const projectsData = [
+  {
+    id: 1,
+    title: 'Food Recipe System',
+    description: 'Real-time food recipe platform with dynamic content and fast, responsive user experience.',
+    image: '/images/projects/foodrecipe.png',
+    category: 'Web App',
+    technologies: ['Nuxt 4', 'Go', 'Tailwind CSS'],
+  },
+  {
+    id: 2,
+    title: 'Event Management',
+    description: 'Real-time event planning and coordination system for scheduling, attendee management, and updates.',
+    image: '/images/projects/eventmanagement.png',
+    category: 'Web Platform',
+    technologies: ['React', 'Node.js', 'Tailwind CSS'],
+  },
+  {
+    id: 3,
+    title: 'Kids Learning Platform',
+    description: 'Interactive learning platform for kids with engaging activities, lessons, and progress tracking.',
+    image: '/images/projects/ethiopiskids.png',
+    category: 'Education',
+    technologies: ['React', 'Node.js', 'Express'],
+  },
+  {
+    id: 4,
+    title: 'Ethiopian Tourism',
+    description: 'Tourism information platform showcasing destinations, travel highlights, and visitor resources.',
+    image: '/images/projects/land.png',
+    category: 'Travel',
+    technologies: ['React', 'Tailwind CSS'],
+  },
+  {
+    id: 5,
+    title: 'Ecommerce App',
+    description: 'Mobile commerce application for product discovery, cart management, and seamless checkout.',
+    image: '/images/projects/ecomerceapp.png',
+    category: 'Mobile App',
+    technologies: ['React Native'],
+  },
+];

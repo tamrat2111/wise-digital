@@ -1,0 +1,71 @@
+// Team member data for Wise Digital
+export const teamMembers = [
+  {
+    id: 1,
+    name: 'Mikiyas Abebe',
+    role: 'CEO & Social Media Manager',
+    bio: 'Visionary leader and CEO driving overall brand strategy, client partnerships, and viral social media marketing for Wise Digital.',
+    image: '/images/team/mikiyas.jpg',
+    phone: '0929136693',
+    email: 'wisedigitals2@gmail.com',
+    social: {
+      telegram: 'https://t.me/wisedigitals21',
+      instagram: 'https://instagram.com/wise_creatives',
+      facebook: 'https://facebook.com/wisedigitalgroups',
+      tiktok: 'https://tiktok.com/@wise_creatives',
+    },
+  },
+  {
+    id: 2,
+    name: 'Aaron Yonas',
+    role: 'Cinematographer & Video Editor',
+    bio: 'Cinematographer and creative video editor specializing in cinematic storytelling, high-end videography, lighting, gimbal operation, and professional post-production.',
+    image: '/images/team/aaron.png',
+    infoImage: '/images/team/aaron_info.png',
+    education: 'Addis Ababa University (Bachelors in Management), Mesob Art School (Cinematography & Photography)',
+    skills: ['Videography', 'Photography', 'Video Editing', 'Camera Operation', 'Gimbal Operation', 'Lighting'],
+    social: {
+      telegram: 'https://t.me/wisedigitals21',
+      instagram: 'https://instagram.com/wise_creatives',
+      tiktok: 'https://tiktok.com/@wise_creatives',
+    },
+  },
+  {
+    id: 3,
+    name: 'Lidiya',
+    role: 'Content Creator & Graphics Designer',
+    bio: 'Dynamic content creator and graphic designer crafting trendsetting digital campaigns, high-impact branding materials, and captivating visuals.',
+    image: '/images/team/lidiya.png',
+    skills: ['Content Creation', 'Graphics Design', 'Visual Branding', 'Social Media Graphics'],
+    social: {
+      telegram: 'https://t.me/wisedigitals21',
+      instagram: 'https://instagram.com/wise_creatives',
+      tiktok: 'https://tiktok.com/@wise_creatives',
+    },
+  },
+  {
+    id: 4,
+    name: 'Bamlak Abebe',
+    role: 'Creative Director',
+    bio: 'Creative director leading artistic direction, conceptual branding, and cutting-edge media productions with an eye for exceptional visual quality.',
+    image: '/images/team/bamlak.png',
+    skills: ['Creative Direction', 'Concept Development', 'Art Direction', 'Production Strategy'],
+    social: {
+      telegram: 'https://t.me/wisedigitals21',
+      instagram: 'https://instagram.com/wise_creatives',
+    },
+  },
+  {
+    id: 5,
+    name: 'Yonas Getaw',
+    role: 'Full Stack & Mobile App Developer',
+    bio: 'Senior software engineer specializing in scalable web systems, modern front-end architectures, cloud services, and cross-platform mobile applications.',
+    image: '/images/team/yonas.png',
+    skills: ['Full Stack Development', 'Mobile Apps (iOS & Android)', 'React / Next.js', 'API & Cloud Systems'],
+    social: {
+      github: 'https://github.com/yonasgetaw',
+      linkedin: 'https://www.linkedin.com/in/yonas-getaw-a66710374',
+      telegram: 'https://t.me/wisedigitals21',
+    },
+  },
+];
