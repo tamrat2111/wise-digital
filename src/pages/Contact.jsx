@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { MapContainer, TileLayer, CircleMarker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
-import emailjs from '@emailjs/browser';
 import { 
   FiUser, 
   FiPhoneCall, 
@@ -13,7 +12,8 @@ import {
   FaTelegramPlane, 
   FaInstagram, 
   FaTiktok, 
-  FaFacebookF 
+  FaFacebookF,
+  FaYoutube
 } from 'react-icons/fa';
 
 function Contact() {
@@ -39,40 +39,46 @@ function Contact() {
     e.preventDefault();
     setIsSubmitting(true);
 
-    const serviceId = process.env.REACT_APP_EMAILJS_SERVICE_ID;
-    const templateId = process.env.REACT_APP_EMAILJS_TEMPLATE_ID;
-    const publicKey = process.env.REACT_APP_EMAILJS_PUBLIC_KEY;
-
-    if (!serviceId || !templateId || !publicKey) {
-      setSubmitStatus('success');
-      setIsSubmitting(false);
-      setFormData({ name: '', phone: '', email: '', subject: '', message: '' });
-      setTimeout(() => setSubmitStatus(null), 5000);
-      return;
-    }
-
     try {
-      await emailjs.send(
-        serviceId,
-        templateId,
-        {
-          from_name: formData.name,
-          from_email: formData.email,
-          phone: formData.phone || 'N/A',
-          subject: formData.subject || 'New Contact Message for Wise Digital',
-          message: formData.message,
-          to_email: 'wisedigitals2@gmail.com',
+      // Direct submission to wisedigitals2@gmail.com via FormSubmit AJAX service
+      const response = await fetch("https://formsubmit.co/ajax/wisedigitals2@gmail.com", {
+        method: "POST",
+        headers: { 
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
         },
-        publicKey
-      );
+        body: JSON.stringify({
+          name: formData.name,
+          phone: formData.phone || 'N/A',
+          email: formData.email,
+          subject: formData.subject || 'New Contact Inquiry - Wise Digital',
+          message: formData.message,
+          _subject: `New Inquiry from ${formData.name} - Wise Digital`,
+          _captcha: 'false',
+          _template: 'table'
+        })
+      });
 
+      const data = await response.json();
+      if (response.ok || data.success === "true" || data.success === true) {
+        setSubmitStatus('success');
+        setFormData({ name: '', phone: '', email: '', subject: '', message: '' });
+      } else {
+        throw new Error(data.message || 'Submission error');
+      }
+    } catch (error) {
+      // Fallback: Opens user's email client directly targeted to wisedigitals2@gmail.com
+      const mailtoUrl = `mailto:wisedigitals2@gmail.com?subject=${encodeURIComponent(
+        formData.subject || 'New Client Inquiry - Wise Digital'
+      )}&body=${encodeURIComponent(
+        `Full Name: ${formData.name}\nPhone: ${formData.phone}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
+      )}`;
+      window.open(mailtoUrl, '_blank');
       setSubmitStatus('success');
       setFormData({ name: '', phone: '', email: '', subject: '', message: '' });
-      setTimeout(() => setSubmitStatus(null), 5000);
-    } catch (error) {
-      setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
+      setTimeout(() => setSubmitStatus(null), 6000);
     }
   };
 
@@ -146,13 +152,13 @@ function Contact() {
 
               {/* Official Social Channels - Clean Icon Buttons */}
               <div className="pt-4 border-t border-slate-100 dark:border-blue-900/40">
-                <span className="text-xs font-oswald font-bold tracking-[0.2em] text-slate-400 uppercase block mb-3">Follow & Connect</span>
+                <span className="text-xs font-oswald font-bold tracking-[0.2em] text-slate-400 uppercase block mb-3">Official Channels</span>
                 <div className="flex flex-wrap items-center gap-3">
                   <a 
                     href="https://t.me/wisedigitals21" 
                     target="_blank" 
                     rel="noopener noreferrer" 
-                    title="Telegram"
+                    title="Telegram: @wisedigitals21"
                     aria-label="Telegram"
                     className="w-12 h-12 rounded-xl bg-blue-50 dark:bg-blue-950/60 text-blue-600 dark:text-blue-400 hover:bg-blue-500 hover:text-white transition-all duration-300 border border-blue-200/60 dark:border-blue-800/60 shadow-sm flex items-center justify-center hover:scale-105 active:scale-95"
                   >
@@ -160,10 +166,10 @@ function Contact() {
                   </a>
 
                   <a 
-                    href="https://instagram.com/wise_creatives" 
+                    href="https://www.instagram.com/wise_digital_solutions/" 
                     target="_blank" 
                     rel="noopener noreferrer" 
-                    title="Instagram"
+                    title="Instagram: @wise_digital_solutions"
                     aria-label="Instagram"
                     className="w-12 h-12 rounded-xl bg-pink-50 dark:bg-pink-950/40 text-pink-600 dark:text-pink-400 hover:bg-gradient-to-tr hover:from-purple-600 hover:to-pink-500 hover:text-white transition-all duration-300 border border-pink-200/60 dark:border-pink-900/60 shadow-sm flex items-center justify-center hover:scale-105 active:scale-95"
                   >
@@ -171,10 +177,10 @@ function Contact() {
                   </a>
 
                   <a 
-                    href="https://tiktok.com/@wise_creatives" 
+                    href="https://www.tiktok.com/@wisedigitalgroup" 
                     target="_blank" 
                     rel="noopener noreferrer" 
-                    title="TikTok"
+                    title="TikTok: @wisedigitalgroup"
                     aria-label="TikTok"
                     className="w-12 h-12 rounded-xl bg-slate-100 dark:bg-slate-800/80 text-slate-800 dark:text-slate-200 hover:bg-black hover:text-white transition-all duration-300 border border-slate-200 dark:border-slate-700 shadow-sm flex items-center justify-center hover:scale-105 active:scale-95"
                   >
@@ -182,14 +188,25 @@ function Contact() {
                   </a>
 
                   <a 
-                    href="https://facebook.com/wisedigitalgroups" 
+                    href="https://www.facebook.com/wisedigitalgroups" 
                     target="_blank" 
                     rel="noopener noreferrer" 
-                    title="Facebook"
+                    title="Facebook: Wise Digitals"
                     aria-label="Facebook"
                     className="w-12 h-12 rounded-xl bg-blue-50 dark:bg-blue-950/50 text-blue-700 dark:text-blue-300 hover:bg-blue-600 hover:text-white transition-all duration-300 border border-blue-200/60 dark:border-blue-800/60 shadow-sm flex items-center justify-center hover:scale-105 active:scale-95"
                   >
                     <FaFacebookF className="w-5 h-5" />
+                  </a>
+
+                  <a 
+                    href="https://www.youtube.com/@Mickyabtube" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    title="YouTube: Mickyab_official"
+                    aria-label="YouTube"
+                    className="w-12 h-12 rounded-xl bg-red-50 dark:bg-red-950/40 text-red-600 dark:text-red-400 hover:bg-red-600 hover:text-white transition-all duration-300 border border-red-200/60 dark:border-red-900/60 shadow-sm flex items-center justify-center hover:scale-105 active:scale-95"
+                  >
+                    <FaYoutube className="w-5 h-5" />
                   </a>
                 </div>
               </div>

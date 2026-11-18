@@ -9,8 +9,8 @@ import {
 } from 'react-icons/fa';
 
 function Teams() {
-  const row1 = teamMembers.slice(0, 3); // 3 members on first row
-  const row2 = teamMembers.slice(3, 5); // 2 members on second row
+  const row1 = teamMembers.slice(0, 3); // 3 members on first row (Mikiyas, Aaron, Lidiya)
+  const row2 = teamMembers.slice(3, 6); // 3 members on second row (Bamlak, Yonas, Yeabsira)
 
   const renderSocialIcon = (platform, url) => {
     if (!url) return null;
@@ -121,8 +121,8 @@ function Teams() {
           {row1.map(renderCard)}
         </div>
 
-        {/* Row 2: 2 Team Cards Centered */}
-        <div className="flex flex-col sm:flex-row justify-center items-center gap-6 sm:gap-8 max-w-4xl mx-auto mt-6 sm:mt-8 w-full">
+        {/* Row 2: 3 Team Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 justify-items-center max-w-6xl mx-auto w-full mt-6 sm:mt-8">
           {row2.map(renderCard)}
         </div>
       </div>

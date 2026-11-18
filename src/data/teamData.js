@@ -63,8 +63,21 @@ export const teamMembers = [
     image: '/images/team/yonas.png',
     skills: ['Full Stack Development', 'Mobile Apps (iOS & Android)', 'React / Next.js', 'API & Cloud Systems'],
     social: {
-      github: 'https://github.com/yonasgetaw',
-      linkedin: 'https://www.linkedin.com/in/yonas-getaw-a66710374',
+      github: 'https://github.com/YonasGetaw',
+      linkedin: 'https://www.linkedin.com/in/yonas-getaw-1aa157360',
+      telegram: 'https://t.me/wisedigitals21',
+    },
+  },
+  {
+    id: 6,
+    name: 'Yeabsira Wondwosen',
+    role: 'Full Stack Developer',
+    bio: 'Full stack developer crafting high-performance web applications, modern responsive interfaces, and robust backend integrations.',
+    image: '/images/team/yeabsira.png',
+    skills: ['Full Stack Development', 'JavaScript / TypeScript', 'React', 'Node.js', 'Web Architecture'],
+    social: {
+      github: 'https://github.com/YeabsiraWondwosen',
+      linkedin: 'https://www.linkedin.com/in/yeabsira-wondwosen-b9aa78336',
       telegram: 'https://t.me/wisedigitals21',
     },
   },

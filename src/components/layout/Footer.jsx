@@ -2,7 +2,8 @@ import {
   FaTelegramPlane, 
   FaInstagram, 
   FaTiktok, 
-  FaFacebookF 
+  FaFacebookF,
+  FaYoutube
 } from 'react-icons/fa';
 import { FiPhone, FiMail } from 'react-icons/fi';
 
@@ -86,33 +87,43 @@ function Footer() {
               </a>
 
               <a 
-                href="https://instagram.com/wise_creatives" 
+                href="https://www.instagram.com/wise_digital_solutions/" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                title="Instagram: @wise_creatives"
+                title="Instagram: @wise_digital_solutions"
                 className="w-12 h-12 rounded-xl bg-blue-950/70 hover:bg-gradient-to-tr hover:from-purple-600 hover:to-pink-500 flex items-center justify-center text-blue-300 hover:text-white transition-all border border-blue-800/60 shadow-lg"
               >
                 <FaInstagram className="w-5 h-5" />
               </a>
 
               <a 
-                href="https://tiktok.com/@wise_creatives" 
+                href="https://www.tiktok.com/@wisedigitalgroup" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                title="TikTok: @wise_creatives"
+                title="TikTok: @wisedigitalgroup"
                 className="w-12 h-12 rounded-xl bg-blue-950/70 hover:bg-black flex items-center justify-center text-blue-300 hover:text-white transition-all border border-blue-800/60 shadow-lg"
               >
                 <FaTiktok className="w-5 h-5" />
               </a>
 
               <a 
-                href="https://facebook.com/wisedigitalgroups" 
+                href="https://www.facebook.com/wisedigitalgroups" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                title="Facebook: Wise Digital groups"
+                title="Facebook: Wise Digitals"
                 className="w-12 h-12 rounded-xl bg-blue-950/70 hover:bg-blue-600 flex items-center justify-center text-blue-300 hover:text-white transition-all border border-blue-800/60 shadow-lg"
               >
                 <FaFacebookF className="w-5 h-5" />
+              </a>
+
+              <a 
+                href="https://www.youtube.com/@Mickyabtube" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                title="YouTube: Mickyab_official"
+                className="w-12 h-12 rounded-xl bg-blue-950/70 hover:bg-red-600 flex items-center justify-center text-blue-300 hover:text-white transition-all border border-blue-800/60 shadow-lg"
+              >
+                <FaYoutube className="w-5 h-5" />
               </a>
             </div>
           </div>
