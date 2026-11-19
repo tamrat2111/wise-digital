@@ -33,14 +33,14 @@ export const teamMembers = [
   {
     id: 3,
     name: 'Lidiya',
-    role: 'Content Creator & Graphics Designer',
-    bio: 'Dynamic content creator and graphic designer crafting trendsetting digital campaigns, high-impact branding materials, and captivating visuals.',
+    role: 'Facebook & Instagram Ads Manager',
+    bio: 'Strategic digital marketer and performance ads manager specializing in high-converting Facebook and Instagram advertising campaigns, target audience segmentation, and ROI scaling.',
     image: '/images/team/lidiya.png',
-    skills: ['Content Creation', 'Graphics Design', 'Visual Branding', 'Social Media Graphics'],
+    skills: ['Facebook Ads', 'Instagram Ads', 'Campaign Strategy', 'Media Buying', 'Audience Targeting'],
     social: {
       telegram: 'https://t.me/wisedigitals21',
-      instagram: 'https://instagram.com/wise_creatives',
-      tiktok: 'https://tiktok.com/@wise_creatives',
+      instagram: 'https://www.instagram.com/wise_digital_solutions/',
+      tiktok: 'https://www.tiktok.com/@wisedigitalgroup',
     },
   },
   {
@@ -71,10 +71,10 @@ export const teamMembers = [
   {
     id: 6,
     name: 'Yeabsira Wondwosen',
-    role: 'Full Stack Developer',
-    bio: 'Full stack developer crafting high-performance web applications, modern responsive interfaces, and robust backend integrations.',
+    role: 'Full Stack & Mobile App Developer',
+    bio: 'Full stack and mobile app developer crafting scalable architectures, cross-platform mobile apps (iOS & Android), and resilient backend integrations.',
     image: '/images/team/yeabsira.png',
-    skills: ['Full Stack Development', 'JavaScript / TypeScript', 'React', 'Node.js', 'Web Architecture'],
+    skills: ['Full Stack Development', 'Mobile App Development', 'React / React Native', 'Node.js', 'APIs'],
     social: {
       github: 'https://github.com/YeabsiraWondwosen',
       linkedin: 'https://www.linkedin.com/in/yeabsira-wondwosen-b9aa78336',
