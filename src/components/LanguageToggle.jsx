@@ -2,8 +2,8 @@ import { useState, useRef, useEffect } from 'react';
 import { FiChevronDown, FiChevronUp } from 'react-icons/fi';
 import { useLanguage } from '../context/LanguageContext';
 
-export const USFlag = ({ className = "w-4 h-2.5 sm:w-4.5 sm:h-3" }) => (
-  <svg viewBox="0 0 640 480" className={`${className} rounded-[2px] shadow-sm shrink-0 border border-black/10`} aria-hidden="true">
+export const USFlag = ({ className = "w-4.5 h-3 sm:w-5 sm:h-3.5" }) => (
+  <svg viewBox="0 0 640 480" className={`${className} rounded-[1.5px] shadow-sm shrink-0 border border-black/10`} aria-hidden="true">
     <g fillRule="evenodd">
       <path fill="#bd3d44" d="M0 0h640v480H0z"/>
       <path stroke="#fff" strokeWidth="37" d="M0 55.5h640M0 129.5h640M0 203.5h640M0 277.5h640M0 351.5h640M0 425.5h640"/>
@@ -39,8 +39,8 @@ export const USFlag = ({ className = "w-4 h-2.5 sm:w-4.5 sm:h-3" }) => (
   </svg>
 );
 
-export const EthiopiaFlag = ({ className = "w-4 h-2.5 sm:w-4.5 sm:h-3" }) => (
-  <svg viewBox="0 0 640 426" className={`${className} rounded-[2px] shadow-sm shrink-0 border border-black/10`} aria-hidden="true">
+export const EthiopiaFlag = ({ className = "w-4.5 h-3 sm:w-5 sm:h-3.5" }) => (
+  <svg viewBox="0 0 640 426" className={`${className} rounded-[1.5px] shadow-sm shrink-0 border border-black/10`} aria-hidden="true">
     <rect width="640" height="142" y="0" fill="#009A44" />
     <rect width="640" height="142" y="142" fill="#FED100" />
     <rect width="640" height="142" y="284" fill="#EF3340" />
@@ -54,6 +54,7 @@ function LanguageToggle({ variant = "navbar" }) {
   const [isOpen, setIsOpen] = useState(false);
   const dropdownRef = useRef(null);
 
+  // Close on outside click
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
@@ -78,43 +79,55 @@ function LanguageToggle({ variant = "navbar" }) {
         <button
           type="button"
           onClick={() => setIsOpen(!isOpen)}
-          className="w-full flex items-center justify-between px-3.5 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-[#0b1022] text-slate-800 dark:text-white transition-all shadow-sm"
+          className="group relative w-full flex items-center justify-between px-4 py-2.5 bg-transparent text-slate-800 dark:text-white transition-all"
         >
-          <div className="flex items-center gap-2.5">
+          {/* Left Bracket: [ */}
+          <span 
+            aria-hidden="true" 
+            className="absolute left-0 top-0 bottom-0 w-2.5 pointer-events-none border-l-2 border-t-2 border-b-2 border-slate-400/80 dark:border-slate-500 group-hover:border-blue-500 transition-colors" 
+          />
+
+          <div className="flex items-center gap-3">
             {currentFlag}
-            <span className="text-xs font-sans font-bold tracking-wider uppercase leading-none">
+            <span className="text-xs sm:text-sm font-sans font-bold tracking-wider uppercase leading-none">
               {currentLabel}
             </span>
           </div>
-          <span className="text-slate-500 dark:text-slate-400">
-            {isOpen ? <FiChevronUp className="w-3.5 h-3.5" /> : <FiChevronDown className="w-3.5 h-3.5" />}
+          <span className="text-slate-500 dark:text-slate-400 group-hover:text-blue-500 transition-colors">
+            {isOpen ? <FiChevronUp className="w-3.5 h-3.5 stroke-[2.5]" /> : <FiChevronDown className="w-3.5 h-3.5 stroke-[2.5]" />}
           </span>
+
+          {/* Right Bracket: ] */}
+          <span 
+            aria-hidden="true" 
+            className="absolute right-0 top-0 bottom-0 w-2.5 pointer-events-none border-r-2 border-t-2 border-b-2 border-slate-400/80 dark:border-slate-500 group-hover:border-blue-500 transition-colors" 
+          />
         </button>
 
         {isOpen && (
-          <div className="mt-1.5 w-full rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-[#070e24] shadow-xl overflow-hidden animate-fade-in">
+          <div className="mt-2 w-full rounded-md border-2 border-slate-200 dark:border-slate-700 bg-white dark:bg-[#070e24] shadow-xl overflow-hidden animate-fade-in">
             <button
               type="button"
               onClick={() => handleSelect('en')}
-              className={`w-full flex items-center gap-2.5 px-3.5 py-2 text-left text-xs font-sans transition-colors ${
+              className={`w-full flex items-center gap-3 px-4 py-3 text-left text-xs sm:text-sm font-sans transition-colors ${
                 language === 'en'
                   ? 'bg-[#1E2E5D] text-white font-bold'
                   : 'text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-white/10 font-medium'
               }`}
             >
-              <USFlag className="w-4 h-2.5" />
+              <USFlag />
               <span className="tracking-wide">English</span>
             </button>
             <button
               type="button"
               onClick={() => handleSelect('am')}
-              className={`w-full flex items-center gap-2.5 px-3.5 py-2 text-left text-xs font-sans transition-colors ${
+              className={`w-full flex items-center gap-3 px-4 py-3 text-left text-xs sm:text-sm font-sans transition-colors ${
                 language === 'am'
                   ? 'bg-[#1E2E5D] text-white font-bold'
                   : 'text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-white/10 font-medium'
               }`}
             >
-              <EthiopiaFlag className="w-4 h-2.5" />
+              <EthiopiaFlag />
               <span className="tracking-wide">አማርኛ</span>
             </button>
           </div>
@@ -123,7 +136,7 @@ function LanguageToggle({ variant = "navbar" }) {
     );
   }
 
-  // Desktop Clean Box Dropdown with refined, balanced font size
+  // Desktop Square Bracket Button: [ 🇺🇸 ENGLISH ⌄ ]
   return (
     <div className="relative inline-block text-left shrink-0" ref={dropdownRef}>
       <button
@@ -131,56 +144,69 @@ function LanguageToggle({ variant = "navbar" }) {
         onClick={() => setIsOpen(!isOpen)}
         aria-expanded={isOpen}
         aria-haspopup="true"
-        className="flex items-center gap-2 px-2.5 py-1 rounded border border-slate-300 dark:border-slate-700 bg-white dark:bg-[#0b1022] hover:border-blue-500 dark:hover:border-blue-400 text-slate-800 dark:text-white transition-all shadow-sm"
+        className="group relative flex items-center gap-2 sm:gap-2.5 px-3 py-1.5 sm:px-3.5 sm:py-1.5 bg-transparent hover:text-blue-600 transition-all select-none"
       >
+        {/* Left Square Bracket: [ */}
+        <span 
+          aria-hidden="true"
+          className="absolute left-0 top-0 bottom-0 w-2 sm:w-2.5 pointer-events-none border-l-2 border-t-2 border-b-2 border-slate-300 dark:border-slate-600 group-hover:border-blue-500 transition-colors" 
+        />
+
         <span className="flex items-center shrink-0">
           {currentFlag}
         </span>
-        <span className="text-[11px] font-sans font-bold tracking-wider uppercase leading-none">
+        <span className="text-[11px] sm:text-xs font-sans font-bold tracking-wider uppercase leading-none text-slate-800 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
           {currentLabel}
         </span>
-        <span className="text-slate-500 dark:text-slate-400">
+        <span className="text-slate-500 dark:text-slate-400 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
           {isOpen ? (
-            <FiChevronUp className="w-3 h-3 stroke-[2.5]" />
+            <FiChevronUp className="w-3.5 h-3.5 stroke-[2.5]" />
           ) : (
-            <FiChevronDown className="w-3 h-3 stroke-[2.5]" />
+            <FiChevronDown className="w-3.5 h-3.5 stroke-[2.5]" />
           )}
         </span>
+
+        {/* Right Square Bracket: ] */}
+        <span 
+          aria-hidden="true"
+          className="absolute right-0 top-0 bottom-0 w-2 sm:w-2.5 pointer-events-none border-r-2 border-t-2 border-b-2 border-slate-300 dark:border-slate-600 group-hover:border-blue-500 transition-colors" 
+        />
       </button>
 
+      {/* Clean Dropdown Popover matching Screenshot 1 */}
       {isOpen && (
         <div 
-          className="absolute right-0 mt-1 w-36 rounded border border-slate-200 dark:border-slate-700 bg-white dark:bg-[#070e24] shadow-xl overflow-hidden z-50 animate-fade-in"
+          className="absolute right-0 mt-2 w-44 rounded-md border-2 border-slate-200 dark:border-slate-700 bg-white dark:bg-[#070e24] shadow-2xl overflow-hidden z-50 animate-fade-in"
           role="menu"
         >
           {/* Option: English */}
           <button
             type="button"
             onClick={() => handleSelect('en')}
-            className={`w-full flex items-center gap-2.5 px-3 py-2 text-left text-xs font-sans transition-colors ${
+            className={`w-full flex items-center gap-3 px-4 py-2.5 text-left text-xs sm:text-sm font-sans transition-colors ${
               language === 'en'
                 ? 'bg-[#1E2E5D] text-white font-bold'
                 : 'text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-white/10 font-medium'
             }`}
             role="menuitem"
           >
-            <USFlag className="w-4 h-2.5" />
-            <span className="tracking-wide text-xs">English</span>
+            <USFlag />
+            <span className="tracking-wide">English</span>
           </button>
 
           {/* Option: Amharic */}
           <button
             type="button"
             onClick={() => handleSelect('am')}
-            className={`w-full flex items-center gap-2.5 px-3 py-2 text-left text-xs font-sans transition-colors ${
+            className={`w-full flex items-center gap-3 px-4 py-2.5 text-left text-xs sm:text-sm font-sans transition-colors ${
               language === 'am'
                 ? 'bg-[#1E2E5D] text-white font-bold'
                 : 'text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-white/10 font-medium'
             }`}
             role="menuitem"
           >
-            <EthiopiaFlag className="w-4 h-2.5" />
-            <span className="tracking-wide text-xs">አማርኛ</span>
+            <EthiopiaFlag />
+            <span className="tracking-wide">አማርኛ</span>
           </button>
         </div>
       )}
