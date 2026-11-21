@@ -1,10 +1,13 @@
-// Team member data for Wise Digital
+// Team member data for Wise Digital with English & Amharic localization
 export const teamMembers = [
   {
     id: 1,
     name: 'Mikiyas Abebe',
+    amharicName: 'ሚኪያስ አበበ',
     role: 'CEO & Social Media Manager',
+    amharicRole: 'ዋና ስራ አስፈፃሚ እና የማህበራዊ ሚዲያ ስራ አስኪያጅ',
     bio: 'Visionary leader and CEO driving overall brand strategy, client partnerships, and viral social media marketing for Wise Digital.',
+    amharicBio: 'የዋይዝ ዲጂታል መስራች እና ዋና ስራ አስፈፃሚ፤ የብራንድ ግንባታ እና የማህበራዊ ሚዲያ ስልት መሪ።',
     image: '/images/team/mikiyas.jpg',
     phone: '0929136693',
     email: 'wisedigitals2@gmail.com',
@@ -18,8 +21,11 @@ export const teamMembers = [
   {
     id: 2,
     name: 'Aaron Yonas',
+    amharicName: 'አሮን ዮናስ',
     role: 'Cinematographer & Video Editor',
+    amharicRole: 'ሲኒማቶግራፈር እና ቪዲዮ ኤዲተር',
     bio: 'Cinematographer and creative video editor specializing in cinematic storytelling, high-end videography, lighting, gimbal operation, and professional post-production.',
+    amharicBio: 'በሲኒማቲክ የቪዲዮ ቀረጻ፣ በጊምባል አሰራር እና በከፍተኛ ደረጃ የቪዲዮ ኤዲቲንግ የተካነ ባለሙያ።',
     image: '/images/team/aaron.png',
     infoImage: '/images/team/aaron_info.png',
     education: 'Addis Ababa University (Bachelors in Management), Mesob Art School (Cinematography & Photography)',
@@ -33,8 +39,11 @@ export const teamMembers = [
   {
     id: 3,
     name: 'Lidiya',
+    amharicName: 'ሊዲያ',
     role: 'Facebook & Instagram Ads Manager',
+    amharicRole: 'የፌስቡክ እና ኢንስታግራም ማስታወቂያ አስተዳዳሪ',
     bio: 'Strategic digital marketer and performance ads manager specializing in high-converting Facebook and Instagram advertising campaigns, target audience segmentation, and ROI scaling.',
+    amharicBio: 'በፌስቡክና ኢንስታግራም ማስታወቂያ አስተዳደር፣ የታለሙ ደንበኞችን በመሳብ እና የሽያጭ እድገትን በማሳደግ የተካነች።',
     image: '/images/team/lidiya.png',
     skills: ['Facebook Ads', 'Instagram Ads', 'Campaign Strategy', 'Media Buying', 'Audience Targeting'],
     social: {
@@ -46,8 +55,11 @@ export const teamMembers = [
   {
     id: 4,
     name: 'Bamlak Abebe',
+    amharicName: 'ባምላክ አበበ',
     role: 'Creative Director',
+    amharicRole: 'የፈጠራ ዳይሬክተር',
     bio: 'Creative director leading artistic direction, conceptual branding, and cutting-edge media productions with an eye for exceptional visual quality.',
+    amharicBio: 'የስነ-ጥበብ እና የፈጠራ ስራዎችን በመምራት፣ አዳዲስ የብራንዲንግ ሃሳቦችን በማመንጨትና በመተግበር የሚመራ።',
     image: '/images/team/bamlak.png',
     skills: ['Creative Direction', 'Concept Development', 'Art Direction', 'Production Strategy'],
     social: {
@@ -58,8 +70,11 @@ export const teamMembers = [
   {
     id: 5,
     name: 'Yonas Getaw',
+    amharicName: 'ዮናስ ጌታው',
     role: 'Full Stack & Mobile App Developer',
+    amharicRole: 'ፉልስታክ እና የሞባይል አፕ አልሚ',
     bio: 'Senior software engineer specializing in scalable web systems, modern front-end architectures, cloud services, and cross-platform mobile applications.',
+    amharicBio: 'ዘመናዊ የዌብሳይትና የሞባይል አፕሊኬሽን ስራዎች ላይ የተሰማራ ከፍተኛ የሶፍትዌር ኢንጂነር።',
     image: '/images/team/yonas.png',
     skills: ['Full Stack Development', 'Mobile Apps (iOS & Android)', 'React / Next.js', 'API & Cloud Systems'],
     social: {
@@ -71,8 +86,11 @@ export const teamMembers = [
   {
     id: 6,
     name: 'Yeabsira Wondwosen',
+    amharicName: 'የዓብስራ ወንድወሰን',
     role: 'Full Stack & Mobile App Developer',
+    amharicRole: 'ፉልስታክ እና የሞባይል አፕ አልሚ',
     bio: 'Full stack and mobile app developer crafting scalable architectures, cross-platform mobile apps (iOS & Android), and resilient backend integrations.',
+    amharicBio: 'የሞባይል እና የዌብ አፕሊኬሽኖችን በመገንባት፣ የዳታቤዝ እና የሲስተም ስራዎችን በማቀናጀት የተካነ አልሚ።',
     image: '/images/team/yeabsira.png',
     skills: ['Full Stack Development', 'Mobile App Development', 'React / React Native', 'Node.js', 'APIs'],
     social: {

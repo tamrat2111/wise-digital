@@ -15,8 +15,10 @@ import {
   FaFacebookF,
   FaYoutube
 } from 'react-icons/fa';
+import { useLanguage } from '../context/LanguageContext';
 
 function Contact() {
+  const { language, t } = useLanguage();
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
@@ -90,18 +92,18 @@ function Contact() {
       <div className="container-custom">
         {/* Title */}
         <div className="mb-20 text-center lg:text-left">
-           <p className="text-blue-600 dark:text-blue-400 text-sm md:text-lg font-oswald font-bold tracking-[0.4em] mb-8 uppercase opacity-90 border-l-4 border-blue-600 pl-6">
-            GET IN TOUCH • ያግኙን
+          <p className="text-blue-600 dark:text-blue-400 text-sm md:text-lg font-oswald font-bold tracking-[0.4em] mb-8 uppercase opacity-90 border-l-4 border-blue-600 pl-6">
+            {t.contact.tag}
           </p>
           
           <h2 className="text-slate-900 dark:text-white text-3xl sm:text-5xl md:text-7xl lg:text-8xl font-oswald font-extrabold uppercase leading-none tracking-tight mb-4">
-            LET&apos;S CREATE <span className="text-blue-600 dark:text-blue-500">TOGETHER</span>
+            {t.contact.heading1} <span className="text-blue-600 dark:text-blue-500">{t.contact.headingHighlight}</span>
           </h2>
 
           <div className="flex items-center gap-4 sm:gap-8 md:gap-12">
             <div className="flex-1 h-1 bg-blue-600/30 dark:bg-blue-400/20" />
             <h3 className="text-slate-900 dark:text-white text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-oswald font-extrabold uppercase leading-none tracking-normal sm:tracking-[0.2em] text-center">
-              WISE DIGITAL
+              {t.contact.heading2}
             </h3>
             <div className="flex-1 h-1 bg-blue-600/30 dark:bg-blue-400/20" />
           </div>
@@ -118,9 +120,15 @@ function Contact() {
                   <FiUser className="w-7 h-7" />
                 </div>
                 <div className="flex flex-col">
-                  <span className="text-xs font-oswald font-bold tracking-[0.2em] text-slate-400 uppercase">Leadership</span>
-                  <span className="text-2xl font-oswald font-extrabold text-slate-900 dark:text-white">Mikiyas Abebe</span>
-                  <span className="text-sm font-sans text-blue-600 dark:text-blue-400 font-semibold">CEO & Social Media Manager</span>
+                  <span className="text-xs font-oswald font-bold tracking-[0.2em] text-slate-400 uppercase">
+                    {t.contact.leadership}
+                  </span>
+                  <span className="text-2xl font-oswald font-extrabold text-slate-900 dark:text-white">
+                    {language === 'am' ? 'ሚኪያስ አበበ' : 'Mikiyas Abebe'}
+                  </span>
+                  <span className="text-sm font-sans text-blue-600 dark:text-blue-400 font-semibold">
+                    {language === 'am' ? 'ዋና ስራ አስፈፃሚ እና የማህበራዊ ሚዲያ ስራ አስኪያጅ' : 'CEO & Social Media Manager'}
+                  </span>
                 </div>
               </div>
 
@@ -130,7 +138,9 @@ function Contact() {
                   <FiPhoneCall className="w-7 h-7" />
                 </div>
                 <div className="flex flex-col">
-                  <span className="text-xs font-oswald font-bold tracking-[0.2em] text-slate-400 uppercase">Direct Phone / Telegram</span>
+                  <span className="text-xs font-oswald font-bold tracking-[0.2em] text-slate-400 uppercase">
+                    {t.contact.directPhone}
+                  </span>
                   <a href="tel:0929136693" className="text-2xl md:text-3xl font-oswald font-extrabold text-slate-900 dark:text-white hover:text-blue-600 transition-colors">
                     0929136693
                   </a>
@@ -143,16 +153,20 @@ function Contact() {
                   <FiMail className="w-7 h-7" />
                 </div>
                 <div className="flex flex-col">
-                  <span className="text-xs font-oswald font-bold tracking-[0.2em] text-slate-400 uppercase">Official Email</span>
+                  <span className="text-xs font-oswald font-bold tracking-[0.2em] text-slate-400 uppercase">
+                    {t.contact.officialEmail}
+                  </span>
                   <a href="mailto:wisedigitals2@gmail.com" className="text-xl md:text-2xl font-oswald font-extrabold text-slate-900 dark:text-white hover:text-blue-600 transition-colors break-all">
                     wisedigitals2@gmail.com
                   </a>
                 </div>
               </div>
 
-              {/* Official Social Channels - Clean Icon Buttons */}
+              {/* Official Social Channels */}
               <div className="pt-4 border-t border-slate-100 dark:border-blue-900/40">
-                <span className="text-xs font-oswald font-bold tracking-[0.2em] text-slate-400 uppercase block mb-3">Official Channels</span>
+                <span className="text-xs font-oswald font-bold tracking-[0.2em] text-slate-400 uppercase block mb-3">
+                  {t.contact.officialChannels}
+                </span>
                 <div className="flex flex-wrap items-center gap-3">
                   <a 
                     href="https://t.me/wisedigitals21" 
@@ -234,14 +248,14 @@ function Contact() {
           {/* Form */}
           <div className="bg-white dark:bg-[#0d1633] rounded-2xl p-10 md:p-14 shadow-2xl border-2 border-slate-200 dark:border-blue-900/40 relative">
             <h2 className="text-3xl md:text-5xl font-oswald font-extrabold text-slate-900 dark:text-white mb-8 uppercase tracking-tight leading-none border-b-4 border-blue-600 pb-4 inline-block">
-              Send a Message
+              {t.contact.formTitle}
             </h2>
 
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <label htmlFor="name" className="block text-xs font-oswald font-bold uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">
-                    Your Name
+                    {t.contact.nameLabel}
                   </label>
                   <input
                     type="text"
@@ -250,13 +264,13 @@ function Contact() {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    placeholder="e.g. Abebe Kebede"
+                    placeholder={t.contact.namePlaceholder}
                     className="w-full px-5 py-4 rounded-xl border-2 border-slate-200 dark:border-blue-950 bg-slate-50 dark:bg-[#070b19] text-slate-900 dark:text-white placeholder:text-slate-400 focus:border-blue-600 focus:outline-none transition-all font-sans text-lg"
                   />
                 </div>
                 <div className="space-y-2">
                   <label htmlFor="phone" className="block text-xs font-oswald font-bold uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">
-                    Phone Number
+                    {t.contact.phoneLabel}
                   </label>
                   <input
                     type="text"
@@ -273,7 +287,7 @@ function Contact() {
               <div className="grid md:grid-cols-2 gap-6">
                 <div className="space-y-2">
                   <label htmlFor="email" className="block text-xs font-oswald font-bold uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">
-                    Email Address
+                    {t.contact.emailLabel}
                   </label>
                   <input
                     type="email"
@@ -282,13 +296,13 @@ function Contact() {
                     value={formData.email}
                     onChange={handleChange}
                     required
-                    placeholder="yourname@gmail.com"
+                    placeholder={t.contact.emailPlaceholder}
                     className="w-full px-5 py-4 rounded-xl border-2 border-slate-200 dark:border-blue-950 bg-slate-50 dark:bg-[#070b19] text-slate-900 dark:text-white placeholder:text-slate-400 focus:border-blue-600 focus:outline-none transition-all font-sans text-lg"
                   />
                 </div>
                 <div className="space-y-2">
                   <label htmlFor="subject" className="block text-xs font-oswald font-bold uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">
-                    Service Interested In
+                    {t.contact.serviceLabel}
                   </label>
                   <select
                     id="subject"
@@ -297,20 +311,20 @@ function Contact() {
                     onChange={handleChange}
                     className="w-full px-5 py-4 rounded-xl border-2 border-slate-200 dark:border-blue-950 bg-slate-50 dark:bg-[#070b19] text-slate-900 dark:text-white placeholder:text-slate-400 focus:border-blue-600 focus:outline-none transition-all font-sans text-lg"
                   >
-                    <option value="">Select a Service</option>
-                    <option value="Content Creation">Content Creation</option>
-                    <option value="Video Editing">Video Editing</option>
-                    <option value="Graphics Design">Graphics Design</option>
-                    <option value="Website Development">Website Development</option>
-                    <option value="Event Organizing">Event Organizing</option>
-                    <option value="Other">Other Project</option>
+                    <option value="">{t.contact.serviceSelect}</option>
+                    <option value="Content Creation">{t.contact.serviceOptions.content}</option>
+                    <option value="Video Editing">{t.contact.serviceOptions.video}</option>
+                    <option value="Graphics Design">{t.contact.serviceOptions.graphics}</option>
+                    <option value="Website Development">{t.contact.serviceOptions.web}</option>
+                    <option value="Event Organizing">{t.contact.serviceOptions.event}</option>
+                    <option value="Other">{t.contact.serviceOptions.other}</option>
                   </select>
                 </div>
               </div>
 
               <div className="space-y-2">
                 <label htmlFor="message" className="block text-xs font-oswald font-bold uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">
-                  Project Brief & Details
+                  {t.contact.messageLabel}
                 </label>
                 <textarea
                   id="message"
@@ -319,7 +333,7 @@ function Contact() {
                   value={formData.message}
                   onChange={handleChange}
                   required
-                  placeholder="Tell us about your brand, goals, and timeline..."
+                  placeholder={t.contact.messagePlaceholder}
                   className="w-full px-5 py-4 rounded-xl border-2 border-slate-200 dark:border-blue-950 bg-slate-50 dark:bg-[#070b19] text-slate-900 dark:text-white placeholder:text-slate-400 focus:border-blue-600 focus:outline-none resize-none transition-all font-sans text-lg"
                 ></textarea>
               </div>
@@ -329,14 +343,14 @@ function Contact() {
                 disabled={isSubmitting}
                 className="w-full py-5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-oswald font-extrabold uppercase tracking-[0.2em] text-xl transition-all shadow-lg active:translate-y-0.5 disabled:opacity-50 flex items-center justify-center gap-3"
               >
-                <span>{isSubmitting ? 'SENDING MESSAGE...' : 'SEND MESSAGE TO WISE DIGITAL'}</span>
+                <span>{isSubmitting ? t.contact.submittingBtn : t.contact.submitBtn}</span>
                 <FiSend className="w-5 h-5" />
               </button>
 
               {submitStatus === 'success' && (
                 <div className="p-4 bg-blue-600 text-white rounded-xl font-oswald font-bold uppercase tracking-wider text-center shadow-md flex items-center justify-center gap-2">
                   <FiCheckCircle className="w-5 h-5" />
-                  <span>Message sent! We will contact you shortly.</span>
+                  <span>{t.contact.successMsg}</span>
                 </div>
               )}
             </form>

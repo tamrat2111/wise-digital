@@ -1,4 +1,8 @@
+import { useLanguage } from '../context/LanguageContext';
+
 function Partners() {
+  const { t } = useLanguage();
+
   const partners = [
     {
       id: 1,
@@ -48,14 +52,14 @@ function Partners() {
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-4 pb-6 border-b border-slate-100 dark:border-slate-800">
           <div>
             <span className="text-xs font-oswald font-bold tracking-[0.3em] uppercase text-blue-600 dark:text-blue-400 block mb-2">
-              PROVEN PARTNERSHIPS
+              {t.partners.tag}
             </span>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-oswald font-extrabold text-slate-900 dark:text-white uppercase tracking-tight">
-              Our Emblematic <span className="text-blue-600 dark:text-blue-500">Clients</span>
+              {t.partners.heading1} <span className="text-blue-600 dark:text-blue-500">{t.partners.headingHighlight}</span>
             </h2>
           </div>
           <p className="text-slate-500 dark:text-slate-400 text-sm md:text-base font-sans max-w-md">
-            Trusted by leading brands, enterprises, and emerging creative businesses across Ethiopia.
+            {t.partners.sub}
           </p>
         </div>
       </div>
@@ -81,7 +85,7 @@ function Partners() {
 
       <div className="container-custom text-center pt-8">
         <p className="text-xs font-oswald uppercase tracking-widest text-slate-400">
-          Hover or tap any logo to reveal color • በነጻነት ይንኩ
+          {t.partners.hint}
         </p>
       </div>
     </section>

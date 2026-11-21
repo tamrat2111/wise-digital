@@ -1,19 +1,23 @@
+import { useLanguage } from '../context/LanguageContext';
+
 function TechStack() {
+  const { language, t } = useLanguage();
+
   const stack = [
     {
-      category: 'Video & Motion',
+      category: language === 'am' ? 'የቪዲዮ እና ሞሽን መሳሪያዎች' : 'Video & Motion',
       items: ['DaVinci Resolve', 'Adobe Premiere Pro', 'After Effects', 'Final Cut Pro'],
     },
     {
-      category: 'Design & Visuals',
+      category: language === 'am' ? 'ዲዛይን እና ቪዥዋልስ' : 'Design & Visuals',
       items: ['Adobe Photoshop', 'Adobe Illustrator', 'Figma / UI/UX', 'Lightroom / Photo Color'],
     },
     {
-      category: 'Web & Development',
+      category: language === 'am' ? 'ዌብ እና ሲስተም' : 'Web & Development',
       items: ['React.js / Next.js', 'Tailwind CSS', 'Node.js & Express', 'Modern REST APIs'],
     },
     {
-      category: 'Mobile & Cloud',
+      category: language === 'am' ? 'ሞባይል እና ክላውድ' : 'Mobile & Cloud',
       items: ['React Native (iOS/Android)', 'Cloud Hosting', 'Digital Marketing Tools', 'SEO & Analytics'],
     },
   ];
@@ -23,18 +27,18 @@ function TechStack() {
       <div className="container-custom">
         {/* Title */}
         <div className="mb-20 text-center lg:text-left">
-           <p className="text-blue-600 dark:text-blue-400 text-sm md:text-lg font-oswald font-bold tracking-[0.4em] mb-10 uppercase opacity-90 border-l-4 border-blue-600 pl-6">
-            OUR TOOLKIT • የመሳሪያ ስብስባችን
+          <p className="text-blue-600 dark:text-blue-400 text-sm md:text-lg font-oswald font-bold tracking-[0.4em] mb-10 uppercase opacity-90 border-l-4 border-blue-600 pl-6">
+            {t.tech.tag}
           </p>
           
           <h2 className="text-slate-900 dark:text-white text-5xl md:text-7xl lg:text-8xl font-oswald font-extrabold uppercase leading-none tracking-tighter mb-4">
-            TOOLS & <span className="text-blue-600 dark:text-blue-500">TECH</span>
+            {t.tech.heading1} <span className="text-blue-600 dark:text-blue-500">{t.tech.headingHighlight}</span>
           </h2>
 
           <div className="flex items-center gap-8 md:gap-12">
             <div className="flex-1 h-1 bg-blue-600/30 dark:bg-blue-400/20" />
             <h3 className="text-slate-900 dark:text-white text-3xl md:text-5xl lg:text-6xl font-oswald font-extrabold uppercase leading-none tracking-[0.2em] whitespace-nowrap">
-              CREATIVE & TECH STACK
+              {t.tech.heading2}
             </h3>
             <div className="flex-1 h-1 bg-blue-600/30 dark:bg-blue-400/20" />
           </div>
