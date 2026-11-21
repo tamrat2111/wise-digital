@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react';
-import { FiMenu, FiX, FiGlobe } from 'react-icons/fi';
+import { FiMenu, FiX } from 'react-icons/fi';
 import ThemeToggle from '../ThemeToggle';
+import LanguageToggle from '../LanguageToggle';
 import { useLanguage } from '../../context/LanguageContext';
 
 function Navbar() {
-  const { language, toggleLanguage, setLanguage, t } = useLanguage();
+  const { t } = useLanguage();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeItem, setActiveItem] = useState('#home');
   const [scrolled, setScrolled] = useState(false);
@@ -46,7 +47,7 @@ function Navbar() {
     <nav className="fixed top-4 left-0 right-0 z-50 transition-all duration-300 flex justify-center px-3 sm:px-6">
       <div
         className={`bg-white/95 dark:bg-[#070e24]/95 backdrop-blur-xl border ${
-          scrolled ? 'border-blue-600/40 shadow-[0_12px_40px_rgba(29,78,216,0.15)]' : 'border-slate-200 dark:border-blue-900/40 shadow-md'
+          scrolled ? 'border-blue-600/40 shadow-[0_12px_40px_rgba(29,78,216,0.18)]' : 'border-slate-200 dark:border-blue-900/40 shadow-md'
         } rounded-full px-4 sm:px-7 py-2.5 sm:py-3 flex items-center justify-between w-full max-w-[1400px] transition-all duration-300`}
       >
         {/* Brand Logo & Name */}
@@ -59,7 +60,7 @@ function Navbar() {
           </span>
         </a>
 
-        {/* Desktop Navigation - Clean Single Row */}
+        {/* Desktop Navigation */}
         <div className="hidden xl:flex items-center gap-1 flex-row justify-center px-1">
           {navItems.slice(0, -1).map((item) => (
             <a
@@ -79,31 +80,8 @@ function Navbar() {
 
         {/* Action Controls */}
         <div className="flex items-center gap-2 sm:gap-3">
-          {/* Language Switcher Button (EN | አማ) */}
-          <div className="flex items-center bg-slate-100 dark:bg-white/10 rounded-full p-1 border border-slate-200/60 dark:border-white/10 shadow-inner">
-            <button
-              onClick={() => setLanguage('en')}
-              className={`px-2.5 py-1 rounded-full text-xs font-oswald font-bold uppercase tracking-wider transition-all ${
-                language === 'en'
-                  ? 'bg-blue-600 text-white shadow-sm'
-                  : 'text-slate-600 dark:text-slate-300 hover:text-blue-600'
-              }`}
-              title="Switch to English"
-            >
-              EN
-            </button>
-            <button
-              onClick={() => setLanguage('am')}
-              className={`px-2.5 py-1 rounded-full text-xs font-oswald font-bold tracking-wider transition-all ${
-                language === 'am'
-                  ? 'bg-blue-600 text-white shadow-sm'
-                  : 'text-slate-600 dark:text-slate-300 hover:text-blue-600'
-              }`}
-              title="ወደ አማርኛ ቀይር"
-            >
-              አማ
-            </button>
-          </div>
+          {/* Modern Iconic Language Switcher */}
+          <LanguageToggle variant="navbar" />
 
           {/* Theme Toggle */}
           <div className="flex items-center justify-center w-9 h-9 sm:w-10 sm:h-10 bg-slate-100 dark:bg-white/10 rounded-full hover:bg-blue-50 dark:hover:bg-white/20 transition-colors">
@@ -134,32 +112,11 @@ function Navbar() {
 
       {/* Mobile Nav Dropdown */}
       {isMenuOpen && (
-        <div className="absolute top-20 left-4 right-4 bg-white/98 dark:bg-[#070e24]/98 backdrop-blur-2xl rounded-3xl border border-blue-600/30 p-6 flex flex-col gap-2 xl:hidden animate-fade-in shadow-2xl max-h-[80vh] overflow-y-auto">
-          {/* Mobile Language Switcher row */}
-          <div className="flex items-center justify-between pb-3 mb-2 border-b border-slate-200 dark:border-white/10">
-            <span className="text-xs font-oswald uppercase tracking-widest text-slate-400 flex items-center gap-1.5">
-              <FiGlobe className="w-4 h-4 text-blue-500" />
-              <span>Language • ቋንቋ</span>
-            </span>
-            <div className="flex items-center bg-slate-100 dark:bg-white/10 rounded-full p-1 border border-slate-200/60 dark:border-white/10">
-              <button
-                onClick={() => setLanguage('en')}
-                className={`px-3 py-1 rounded-full text-xs font-oswald font-bold uppercase tracking-wider transition-all ${
-                  language === 'en' ? 'bg-blue-600 text-white' : 'text-slate-600 dark:text-slate-300'
-                }`}
-              >
-                English
-              </button>
-              <button
-                onClick={() => setLanguage('am')}
-                className={`px-3 py-1 rounded-full text-xs font-oswald font-bold tracking-wider transition-all ${
-                  language === 'am' ? 'bg-blue-600 text-white' : 'text-slate-600 dark:text-slate-300'
-                }`}
-              >
-                አማርኛ
-              </button>
-            </div>
-          </div>
+        <div className="absolute top-20 left-4 right-4 bg-white/98 dark:bg-[#070e24]/98 backdrop-blur-2xl rounded-3xl border border-blue-600/30 p-6 flex flex-col gap-3 xl:hidden animate-fade-in shadow-2xl max-h-[82vh] overflow-y-auto">
+          {/* Mobile Language Selector Card */}
+          <LanguageToggle variant="mobile" />
+
+          <div className="h-px bg-slate-200 dark:bg-white/10 my-1" />
 
           {navItems.map((item) => (
             <a
@@ -173,7 +130,7 @@ function Navbar() {
                 activeItem === item.href
                   ? 'bg-blue-600 text-white'
                   : 'text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-white hover:bg-blue-50 dark:hover:bg-white/5'
-              } ${item.href === '#contact' ? 'bg-blue-600 !text-white mt-2' : ''}`}
+              } ${item.href === '#contact' ? 'bg-blue-600 !text-white mt-1' : ''}`}
             >
               {item.name}
             </a>
